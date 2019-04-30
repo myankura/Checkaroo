@@ -1,0 +1,90 @@
+{
+    "users": [
+        {
+            "id": 1,
+            "firstName": "Billy",
+            "lastName": "Mays",
+            "username": "bmay",
+            "password": "12345",
+            "email": "billy@gmail.com"
+        },
+        {
+            "id": 2,
+            "firstName": "Mike",
+            "lastName": "Jones",
+            "username": "mjones",
+            "password": "12345",
+            "email": "mike@gmail.com"
+        },
+        {
+            "id": 3,
+            "firstName": "Jon",
+            "lastName": "Johnson",
+            "username": "jjohnson",
+            "password": "12345",
+            "email": "jon@gmail.com"
+        }
+    ],
+    "items": [
+        {
+            "id": 1,
+            "itemName": "Tent",
+            "quantity": 2,
+            "perishable": false,
+            "packed": false,
+            "checklistId": 1
+        },
+        {
+            "id": 2,
+            "itemName": "Chicken",
+            "quantity": 2,
+            "perishable": true,
+            "packed": false,
+            "checklistId": 1
+        },
+        {
+            "id": 2,
+            "itemName": "Beer",
+            "quantity": 2,
+            "perishable": true,
+            "packed": false,
+            "checklistId": 1
+        },
+        {
+            "id": 2,
+            "itemName": "Sunscreen",
+            "quantity": 2,
+            "perishable": false,
+            "packed": true,
+            "checklistId": 1
+        },
+        {
+            "id": 2,
+            "itemName": "Potato Chips",
+            "quantity": 2,
+            "perishable": true,
+            "packed": false,
+            "checklistId": 2
+        }
+    ],
+    "checklists": [
+        {
+            "id": 1,
+            "name": "Bonnaroo 2007",
+            "completed": true,
+            "userId": 1
+        },
+        {
+            "id": 2,
+            "name": "Bonnaroo 2012",
+            "completed": true,
+            "userId": 1
+        },
+        {
+            "id": 3,
+            "name": "Bonnaroo 2013",
+            "completed": true,
+            "userId": 1
+        }
+    ]
+}
