@@ -1,25 +1,35 @@
 .items {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
 }
 
+.newItemButton {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 0 0 10px 0;
+    margin-top: 50px;
+}
+
+.editForm {
+    margin-top: 50px;
+}
 /* .icon--item {
     width: 50px;
     height: 50px;
-}
+} */
 
-.card {
+/* .card {
     width: 10rem;
-}
+} */
 
-.card-title {
+/* .card-title {
     display: flex;
     justify-content: space-around;
     align-items: center;
     flex-direction: column;
-}
+} */
 
-.card-link {
+/* .card-link {
     margin: 12px 0 0 0;
     font-size: 0.7em;
 } */

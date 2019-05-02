@@ -14,6 +14,9 @@ import Login from "./login/Login"
 // import RegistrationForm from "./login/RegistrationForm"
 import ItemsEditForm from "./items/ItemsEditForm";
 
+//import form for adding new items
+import ItemsForm from "./items/ItemsForm"
+
 
 
 
@@ -24,9 +27,7 @@ class ApplicationViews extends Component {
         items: [],
         checklists: []
     }
-    // componentDidMount() {
 
-    // }
 
     componentDidMount() {
         const newState = {}
@@ -82,6 +83,10 @@ class ApplicationViews extends Component {
                     return <ItemsList {...props}
                         deleteItem={this.deleteItem}
                         items={this.state.items} />
+                }} />
+                <Route path="/dashboard/newitem" render={(props) => {
+                    return <ItemsForm {...props}
+                        addItem={this.addItem} />
                 }} />
                 <Route
                     path="/dashboard/:itemId(\d+)/edit" render={props => {
