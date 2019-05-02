@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import ItemsManager from '../../modules/ItemsManager'
+import './items.css'
 
 export default class ItemsEditForm extends Component {
     //Set initial state
@@ -8,7 +9,7 @@ export default class ItemsEditForm extends Component {
         quantity: "",
         perishable: "",
         packed: "",
-        checklistId: ""
+        checklistId: 1
     }
 
     //Handle whether the perishable button has been selected true
@@ -54,7 +55,8 @@ export default class ItemsEditForm extends Component {
             itemName: this.state.itemName,
             quantity: this.state.quantity,
             perishable: (this.state.perishable === "true"),
-            packed: (this.state.packed === "true")
+            packed: (this.state.packed === "true"),
+            checklistId: this.state.checklistId
         }
         //Pushes the user back to the dashboard page
         this.props.updateItem(editedItem)
@@ -79,7 +81,7 @@ export default class ItemsEditForm extends Component {
     render() {
         return (
             <React.Fragment>
-                <form className="form-group">
+                <form className="form-group editForm">
                     <label htmlFor="itemName">Item Name: </label>
                     <input
                         type="text"
@@ -88,6 +90,7 @@ export default class ItemsEditForm extends Component {
                         onChange={this.handleFieldChange}
                         id="itemName"
                         value={this.state.itemName}
+                        placeholder="Please enter an item..."
                     />
                     <label htmlFor="quantity">Quantity: </label>
                     <input
@@ -97,54 +100,54 @@ export default class ItemsEditForm extends Component {
                         onChange={this.handleFieldChange}
                         id="quantity"
                         value={this.state.quantity}
+                        placeholder="Please enter a quantity..."
                     />
                     <label>Perishable Item: </label>
                     <br></br>
                     <label htmlFor="perishable">True: </label>
                     <input
-                        type="radio"
-                        required
-                        name="perishableItem"
-                        className="form-control"
-                        onChange={this.handleFieldChange}
                         id="perishable"
+                        type="checkbox"
+                        required
                         value="true"
+                        name="perishableItem"
+                        onChange={this.handleFieldChange}
                         checked={this.handlePerishableTrue(this.state.perishable)}
                     />
                     <label htmlFor="perishable">False: </label>
                     <input
-                        type="radio"
-                        required
-                        name="perishableItem"
-                        className="form-control"
-                        onChange={this.handleFieldChange}
                         id="perishable"
+                        type="checkbox"
+                        required
                         value="false"
+                        name="perishableItem"
+                        onChange={this.handleFieldChange}
                         checked={this.handlePerishableFalse(this.state.perishable)}
                     />
+                    <br></br>
                     <label>Item Packed: </label>
                     <br></br>
                     <label htmlFor="packed">True: </label>
                     <input
-                        type="radio"
-                        required
-                        className="form-control"
-                        onChange={this.handleFieldChange}
                         id="packed"
+                        type="checkbox"
+                        required
                         value="true"
+                        name="packedItem"
+                        onChange={this.handleFieldChange}
                         checked={this.handlePackedTrue(this.state.packed)}
                     />
                     <label htmlFor="packed">False: </label>
                     <input
-                        type="radio"
-                        required
-                        className="form-control"
-                        onChange={this.handleFieldChange}
                         id="packed"
+                        type="checkbox"
+                        required
                         value="false"
+                        name="packedItem"
+                        onChange={this.handleFieldChange}
                         checked={this.handlePackedFalse(this.state.packed)}
-
                     />
+                    <br></br>
                     <button
                         type="submit"
                         onClick={this.updateExistingItem}
