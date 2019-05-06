@@ -17,13 +17,13 @@ export default {
         })
     },
     //post a new user to the API
-    post(newUser) {
+    post(user) {
         return fetch(`${remoteURL}/users`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(newUser)
+            body: JSON.stringify(user)
         }).then(data => data.json())
     }
 }

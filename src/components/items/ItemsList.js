@@ -2,9 +2,18 @@ import React, { Component } from "react"
 // import { Link } from "react-router-dom"
 import "./items.css"
 
+//get checklist of current user then display the items that are associated with that checklist by item id.
+
 //List all items
 export default class ItemsList extends Component {
 
+    state = {
+        userItems: []
+    }
+    componentDidMount() {
+        console.log(this.props.checklists)
+        console.log(this.props.items)
+    }
     //Conditional statement to determine whether the item is perishable.
     isPerishable = (perisableItem) => {
         if (perisableItem) {
@@ -33,6 +42,7 @@ export default class ItemsList extends Component {
                                         {item.itemName}
                                         <p>Quantity: {item.quantity}</p>
                                         <p>{this.isPerishable(item.perishable)}</p>
+                                        <p>{item.checklistId}</p>
                                         <button
                                             onClick={() => {this.props.deleteItem(item.id)}}
                                             className="card-link">Delete</button>

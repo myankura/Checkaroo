@@ -1,17 +1,18 @@
 import { withRouter } from "react-router"
-import { Route } from "react-router-dom"
+import { Route, Redirect } from "react-router-dom"
 import React, { Component } from "react"
 // import ChecklistList from "./checklists/ChecklistList"
 // import ChecklistForm from "./checklists/ChecklistForm"
 import ItemsList from "./items/ItemsList"
+
 //import API managers from modules
 import ChecklistsManager from "../modules/ChecklistsManager"
 import ItemsManager from "../modules/ItemsManager"
 import UsersManager from "../modules/UsersManager"
 
 //import login page
-import Login from "./login/Login"
-// import RegistrationForm from "./login/RegistrationForm"
+import Login from "./authentication/Login"
+import RegistrationForm from "./authentication/RegistrationForm"
 import ItemsEditForm from "./items/ItemsEditForm";
 
 //import form for adding new items
@@ -22,86 +23,109 @@ import ItemsForm from "./items/ItemsForm"
 
 //List all data on respective pages
 class ApplicationViews extends Component {
+
+    isAuthenticated = () => sessionStorage.getItem("credentials") !== null
+
     state = {
         users: [],
         items: [],
-        checklists: []
+        checklists: [],
+        userId: []
     }
-
 
     componentDidMount() {
-        const newState = {}
-        ChecklistsManager.getAll()
-            .then(checklists => newState.checklists = checklists)
-            .then(() => ItemsManager.getAll())
-            .then(items => newState.items = items)
-            .then(() => UsersManager.getAll())
-            .then(users => {
-                newState.users = users
-                this.setState(newState)
-            })
+        this.userSpecificData()
     }
+
+    userSpecificData = () => {
+        const newState = {}
+        let currentUserId = sessionStorage.getItem("userId")
+        console.log(currentUserId)
+        UsersManager.getAll().then(users => (newState.users = users))
+            .then(() => ChecklistsManager.getAll(currentUserId))
+            .then(checklists => (newState.checklists = checklists))
+            .then(() => {
+                console.log("newstate", newState.checklists[0])
+                return ChecklistsManager.getChecklistItems(newState.checklists[0].id)
+            })
+            .then(items => (newState.items = items))
+            .then(() => this.setState(newState))
+    }
+
+    //Handles login
+    onLogin = () => {
+        this.userSpecificData()
+    }
+
+    //Add new item
+    addItem = item => {
+        return ItemsManager.post(item)
+            .then(() => this.userSpecificData())
+    }
+
     //delete item by id
-    deleteItem = id => ItemsManager.delete(id)
-        .then(ItemsManager.getAll)
-        .then(items => {
-            this.props.history.push("/dashboard")
-            this.setState({ items: items })
-        })
-    //add new item
-    addItem = item =>
-        ItemsManager.post(item)
-            .then(() => ItemsManager.getAll())
-            .then(items =>
-                this.setState({
-                    items: items
-                })
-            );
-    //update item
+    deleteItem = id => {
+        return ItemsManager.delete(id)
+            .then(() => this.userSpecificData())
+    }
+
+    //update item by id
     updateItem = editedItemObject => {
         return ItemsManager.put(editedItemObject)
-            .then(() => ItemsManager.getAll())
-            .then(items =>
-                this.setState({
-                    items: items
-                }))
+            .then(() => this.userSpecificData())
     }
-    //create new user
-    addUser = user =>
-        UsersManager.post(user)
 
+    //create new user
+    addUser = user => {
+    UsersManager.post(user)
+    }
     render() {
         return (
             <React.Fragment>
-                <Route
-                    exact path="/"
-                    render={props => {
-                        return <Login />
-                    }}
-                />
-                <Route exact path="/dashboard" render={(props) => {
-                    return <ItemsList {...props}
-                        deleteItem={this.deleteItem}
-                        items={this.state.items} />
+
+
+                <Route exact path="/" render={props => {
+                    return <Login {...props}
+                        onLogin={this.onLogin}
+                        userSpecificData={this.userSpecificData}
+                    />
                 }} />
-                <Route path="/dashboard/newitem" render={(props) => {
+
+                <Route exact path="/login/new" render={props => {
+                    return <RegistrationForm {...props}
+                        addUser={this.addUser}
+                        onLogin={this.onLogin}
+                        userSpecificData={this.userSpecificData}
+                    />
+                }} />
+
+                <Route exact path="/dashboard" render={props => {
+                        return <ItemsList {...props}
+                            items={this.state.items}
+                            checklists={this.state.checklists[0]}
+                            deleteItem={this.deleteItem}
+                            userSpecificData={this.userSpecificData}
+                        />
+                }} />
+
+                <Route exact path="/dashboard/newitem" render={props => {
+
                     return <ItemsForm {...props}
-                        addItem={this.addItem} />
+                        addItem={this.addItem}
+                        userSpecificData={this.userSpecificData}
+                    />
+
                 }} />
-                <Route
-                    path="/dashboard/:itemId(\d+)/edit" render={props => {
-                        return <ItemsEditForm {...props} items={this.state.items} updateItem={this.updateItem} />
-                    }}
-                />
-                {/* <Route
-                    exact path="/login/new"
-                    render={props => {
-                        return <RegistrationForm {...props}
-                            addUser={this.addUser} />
-                    }} /> */}
+
+                <Route exact path="/dashboard/:itemId(\d+)/edit" render={props => {
+                    return <ItemsEditForm {...props}
+                        updateItem={this.updateItem}
+                        userSpecificData={this.userSpecificData} />
+
+                }} />
+
             </React.Fragment>
         )
     }
-
 }
 export default withRouter(ApplicationViews)

@@ -46,7 +46,7 @@ export default class ItemsForm extends Component {
             const item = {
                 itemName: this.state.itemName,
                 quantity: this.state.quantity,
-                perishable: (this.state.perishable === "true"),
+                perishable: (this.state.perishable === true),
                 packed: this.state.packed,
                 checklistId: this.state.checklistId
             }
@@ -83,7 +83,7 @@ export default class ItemsForm extends Component {
                         />
                     </div>
                     <div>
-                        <label htmlForm="perishable">Perishable:</label>
+                        <label htmlFor="perishable">Perishable:</label>
                         <input
                             id="perishable"
                             type="checkbox"
