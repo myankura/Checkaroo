@@ -9,17 +9,8 @@ export default class ItemsForm extends Component {
         quantity: "",
         perishable: false,
         packed: false,
-        checklistId: 1
+        checklistId: ""
     };
-
-    // // Handle whether perishable is true
-    // handlePerishableTrue = item => {
-    //     if (item.target.value === true) {
-    //         // return true
-    //         this.setState({ perishable: true })
-
-    //     }
-    // }
 
     //Handle whether perishable is false
     handlePerishableTrue = item => {
@@ -33,6 +24,16 @@ export default class ItemsForm extends Component {
         stateToChange[event.target.id] = event.target.value;
         this.setState(stateToChange);
     };
+
+    //get the id of the checklist that the user has.
+    componentDidMount() {
+        let getChecklistId = this.props.checklists.map(checklist => {
+            return checklist.id
+        })
+        this.setState({
+            checklistId: getChecklistId
+        })
+    }
 
     /*Local method for validation, creating item object,
     and invoking the function reference passed from parent component*/
@@ -48,7 +49,7 @@ export default class ItemsForm extends Component {
                 quantity: this.state.quantity,
                 perishable: (this.state.perishable === "true"),
                 packed: this.state.packed,
-                checklistId: this.state.checklistId
+                checklistId: this.state.checklistId[0]
             }
             //create the item and redirect user to the dashboard
             this.props.addItem(item)
@@ -57,6 +58,7 @@ export default class ItemsForm extends Component {
     }
     //render item form when ever add item is clicked.
     render() {
+        console.log("this.props.checklist?", this.props.checklists)
         return (
             <React.Fragment>
                 <form className="itemForm content items">
@@ -83,7 +85,7 @@ export default class ItemsForm extends Component {
                         />
                     </div>
                     <div>
-                        <label htmlForm="perishable">Perishable:</label>
+                        <label htmlFor="perishable">Perishable:</label>
                         <input
                             id="perishable"
                             type="checkbox"

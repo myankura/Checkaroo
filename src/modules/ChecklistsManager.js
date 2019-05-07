@@ -7,8 +7,8 @@ export default {
         return fetch(`${remoteURL}/checklists/${id}`).then(e => e.json())
     },
     //get all checklists
-    getAll() {
-        return fetch(`${remoteURL}/checklists/`).then(e => e.json())
+    getAll(currentUserId) {
+        return fetch(`${remoteURL}/checklists?userId=${currentUserId}&_embed=items`).then(e => e.json())
     },
     delete(id) {
         return fetch(`${remoteURL}/checklists/${id}`, {
@@ -22,5 +22,9 @@ export default {
                 "Content-Type": "application/json"
             }, body: JSON.stringify(checklist)
         }).then(data => data.json())
+    },
+    getChecklistItems(checklistId) {
+        return fetch(`${remoteURL}/items?checklistId=${checklistId}`).then(e => e.json())
     }
+
 }
