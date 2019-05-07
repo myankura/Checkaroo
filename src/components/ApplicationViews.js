@@ -18,9 +18,6 @@ import ItemsEditForm from "./items/ItemsEditForm";
 //import form for adding new items
 import ItemsForm from "./items/ItemsForm"
 
-
-
-
 //List all data on respective pages
 class ApplicationViews extends Component {
 
@@ -44,13 +41,23 @@ class ApplicationViews extends Component {
         UsersManager.getAll().then(users => (newState.users = users))
             .then(() => ChecklistsManager.getAll(currentUserId))
             .then(checklists => (newState.checklists = checklists))
-            .then(() => {
-                console.log("newstate", newState.checklists[0])
-                return ChecklistsManager.getChecklistItems(newState.checklists[0].id)
-            })
-            .then(items => (newState.items = items))
-            .then(() => this.setState(newState))
-    }
+        .then(() => this.setState(newState))
+        }
+
+    // userSpecificData = () => {
+    //     const newState = {}
+    //     let currentUserId = sessionStorage.getItem("userId")
+    //     console.log(currentUserId)
+    //     UsersManager.getAll().then(users => (newState.users = users))
+    //         .then(() => ChecklistsManager.getAll(currentUserId))
+    //         .then(checklists => (newState.checklists = checklists))
+    //         .then(() => {
+    //             console.log("newstate", newState.checklists[0])
+    //             return ChecklistsManager.getChecklistItems(newState.checklists[0].id)
+    //         })
+    //         .then(items => (newState.items = items))
+    //         .then(() => this.setState(newState))
+    // }
 
     //Handles login
     onLogin = () => {
@@ -77,7 +84,7 @@ class ApplicationViews extends Component {
 
     //create new user
     addUser = user => {
-    UsersManager.post(user)
+    return UsersManager.post(user)
     }
     render() {
         return (
@@ -102,7 +109,7 @@ class ApplicationViews extends Component {
                 <Route exact path="/dashboard" render={props => {
                         return <ItemsList {...props}
                             items={this.state.items}
-                            checklists={this.state.checklists[0]}
+                            checklists={this.state.checklists}
                             deleteItem={this.deleteItem}
                             userSpecificData={this.userSpecificData}
                         />
@@ -112,6 +119,7 @@ class ApplicationViews extends Component {
 
                     return <ItemsForm {...props}
                         addItem={this.addItem}
+                        checklists={this.state.checklists}
                         userSpecificData={this.userSpecificData}
                     />
 

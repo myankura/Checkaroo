@@ -26,4 +26,5 @@ export default {
     getChecklistItems(checklistId) {
         return fetch(`${remoteURL}/items?checklistId=${checklistId}`).then(e => e.json())
     }
+
 }

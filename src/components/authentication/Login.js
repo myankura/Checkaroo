@@ -14,7 +14,7 @@ export default class Login extends Component {
         this.setState(stateToChange)
     }
 
-    // Simplistic handler for login submit
+    // Handle user login
     handleLogin = (e) => {
         e.preventDefault()
 
@@ -31,7 +31,8 @@ export default class Login extends Component {
                 } else {
                     window.alert("Invalid user!")
                 }
-            }).then(() => this.props.userSpecificData())
+            })
+            // .then(() => this.props.userSpecificData())
     }
 
     // this.props.history.push("/dashboard")

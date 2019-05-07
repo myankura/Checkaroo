@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 // import UsersManager from "../../modules/UsersManager"
 import './login.css'
+import ChecklistManager from '../../modules/ChecklistsManager'
 
 export default class RegistrationForm extends Component {
     state = {
@@ -27,7 +28,21 @@ export default class RegistrationForm extends Component {
             password: this.state.password,
             email: this.state.email
         }
-        this.props.addUser(user).then(() => this.props.history.push("/dashboard"))
+        this.props.addUser(user)
+        .then(thisUser => {
+            sessionStorage.setItem("userId", thisUser.id)
+            let newChecklist = {
+                    name: thisUser.firstName + "'s Bonnaroo Checklist",
+                    completed: false,
+                    userId: parseInt(thisUser.id)
+                }
+                ChecklistManager.post(newChecklist)
+            })
+            .then(() => {
+                    this.props.onLogin()
+                    this.props.history.push("/dashboard")
+            })
+
     }
     render() {
         return (
@@ -39,21 +54,24 @@ export default class RegistrationForm extends Component {
                             type="text"
                             className="form-control"
                             id="firstName"
-                            placehold="First Name..."
+                            onChange={this.handleFieldChange}
+                            placeholder="First Name..."
                         />
                         <label htmlFor="lastName">Last Name:</label>
                         <input
                             type="text"
                             className="form-control"
                             id="lastName"
-                            placehold="Last Name..."
+                            onChange={this.handleFieldChange}
+                            placeholder="Last Name..."
                         />
                         <label htmlFor="email">Email:</label>
                         <input
                             type="text"
                             className="form-control"
                             id="email"
-                            placehold="Email address..."
+                            onChange={this.handleFieldChange}
+                            placeholder="Email address..."
                         />
                         <label htmlFor="username">Username:</label>
                         <input
@@ -61,15 +79,17 @@ export default class RegistrationForm extends Component {
                             required
                             className="form-control"
                             id="username"
-                            placehold="Username..."
+                            onChange={this.handleFieldChange}
+                            placeholder="Username..."
                         />
                         <label htmlFor="password">Password:</label>
                         <input
-                            type="text"
+                            type="password"
                             required
                             className="form-control"
                             id="password"
-                            placehold="Password..."
+                            onChange={this.handleFieldChange}
+                            placeholder="Password..."
                         />
                         <button
                             type="submit"
