@@ -7,6 +7,7 @@ import "./items.css"
 //List all items
 export default class ItemsList extends Component {
 
+    //Initialize the state of user's items that match the checklistId that belongs to the user.
     state = {
         userItems: []
     }
@@ -54,7 +55,6 @@ export default class ItemsList extends Component {
                                             <p>Quantity: {item.quantity}</p>
                                             <p>{this.isPerishable(item.perishable)}</p>
                                             <p>{this.isPacked(item.packed)}</p>
-                                            <p>Checklist ID: {item.checklistId}</p>
                                             <button
                                                 onClick={() => { this.props.deleteItem(item.id) }}
                                                 className="card-link">Delete</button>

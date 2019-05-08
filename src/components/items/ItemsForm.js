@@ -31,19 +31,22 @@ export default class ItemsForm extends Component {
             return checklist.id
         })
         this.setState({
+            //After the user has been validated get the checklist that is unique to the user and set the state of the checklistId
             checklistId: getChecklistId
         })
     }
 
-    /*Local method for validation, creating item object,
-    and invoking the function reference passed from parent component*/
+    //Create a new item and also run it through form validation to confirm every field has been filled out.
     constructNewItem = event => {
         event.preventDefault();
         if (this.state.itemName === "") {
+            //checks that itemName has been passed
             window.alert("Please enter the name of the item");
         } else if (this.state.quantity === "") {
+            //verifies that the quantity of the item has been passed through input field.
             window.alert("Please enter the quantity of the item")
         } else {
+            //store values that have been passed through the fields into an object.
             const item = {
                 itemName: this.state.itemName,
                 quantity: this.state.quantity,

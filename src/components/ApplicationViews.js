@@ -1,5 +1,5 @@
 import { withRouter } from "react-router"
-import { Route, Redirect } from "react-router-dom"
+import { Route } from "react-router-dom"
 import React, { Component } from "react"
 // import ChecklistList from "./checklists/ChecklistList"
 // import ChecklistForm from "./checklists/ChecklistForm"
@@ -21,7 +21,7 @@ import ItemsForm from "./items/ItemsForm"
 //List all data on respective pages
 class ApplicationViews extends Component {
 
-    isAuthenticated = () => sessionStorage.getItem("credentials") !== null
+    // isAuthenticated = () => sessionStorage.getItem("credentials") !== null
 
     state = {
         users: [],
@@ -30,10 +30,12 @@ class ApplicationViews extends Component {
         userId: []
     }
 
+    //Display data
     componentDidMount() {
         this.userSpecificData()
     }
 
+    //fetch data from users and checklist tables
     userSpecificData = () => {
         const newState = {}
         let currentUserId = sessionStorage.getItem("userId")
@@ -41,51 +43,43 @@ class ApplicationViews extends Component {
         UsersManager.getAll().then(users => (newState.users = users))
             .then(() => ChecklistsManager.getAll(currentUserId))
             .then(checklists => (newState.checklists = checklists))
-        .then(() => this.setState(newState))
-        }
+            .then(() => this.setState(newState))
+    }
 
-    // userSpecificData = () => {
-    //     const newState = {}
-    //     let currentUserId = sessionStorage.getItem("userId")
-    //     console.log(currentUserId)
-    //     UsersManager.getAll().then(users => (newState.users = users))
-    //         .then(() => ChecklistsManager.getAll(currentUserId))
-    //         .then(checklists => (newState.checklists = checklists))
-    //         .then(() => {
-    //             console.log("newstate", newState.checklists[0])
-    //             return ChecklistsManager.getChecklistItems(newState.checklists[0].id)
-    //         })
-    //         .then(items => (newState.items = items))
-    //         .then(() => this.setState(newState))
-    // }
 
     //Handles login
     onLogin = () => {
+        //Return only data for specific user by id
         this.userSpecificData()
     }
 
     //Add new item
     addItem = item => {
         return ItemsManager.post(item)
+            //Return only data for specific user by id
             .then(() => this.userSpecificData())
     }
 
     //delete item by id
     deleteItem = id => {
         return ItemsManager.delete(id)
+            //Return only data for specific user by id
             .then(() => this.userSpecificData())
     }
 
     //update item by id
     updateItem = editedItemObject => {
         return ItemsManager.put(editedItemObject)
+            //Return only data for specific user by id
             .then(() => this.userSpecificData())
     }
 
     //create new user
     addUser = user => {
-    return UsersManager.post(user)
+        return UsersManager.post(user)
     }
+
+    //Create routes for nav bar and pass data to each repective component.
     render() {
         return (
             <React.Fragment>
@@ -107,12 +101,12 @@ class ApplicationViews extends Component {
                 }} />
 
                 <Route exact path="/dashboard" render={props => {
-                        return <ItemsList {...props}
-                            items={this.state.items}
-                            checklists={this.state.checklists}
-                            deleteItem={this.deleteItem}
-                            userSpecificData={this.userSpecificData}
-                        />
+                    return <ItemsList {...props}
+                        items={this.state.items}
+                        checklists={this.state.checklists}
+                        deleteItem={this.deleteItem}
+                        userSpecificData={this.userSpecificData}
+                    />
                 }} />
 
                 <Route exact path="/dashboard/newitem" render={props => {
