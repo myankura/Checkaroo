@@ -12,18 +12,19 @@ export default class ItemsEditForm extends Component {
         checklistId: ""
     }
 
+    //handles checkbox input and sets state of checkboxes
     handleCheckbox = item => {
         const stateToChange = {};
-        console.log("Checkbox is being clicked!", item.target.value)
+        // console.log("Checkbox has been clicked!", item.target.value)
         stateToChange[item.target.id] = !this.state[item.target.id];
         this.setState(stateToChange)
     }
 
 
-    //Handles field changes of an item
+    //Handles field changes of a field in the form and sets state
     handleFieldChange = item => {
         const stateToChange = {};
-        console.log("Checkbox is being clicked!", item.target.value)
+        // console.log("Field has been changed!", item.target.value)
         stateToChange[item.target.id] = item.target.value;
         this.setState(stateToChange)
     }
@@ -31,7 +32,7 @@ export default class ItemsEditForm extends Component {
     //Method for updating an existing item
     updateExistingItem = item => {
         item.preventDefault()
-        console.log("this.state.perishable", this.state.perishable)
+        // console.log("this.state.perishable", this.state.perishable)
         const editedItem = {
             id: Number(this.props.match.params.itemId),
             itemName: this.state.itemName,

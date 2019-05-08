@@ -10,11 +10,13 @@ export default {
     getAll(currentUserId) {
         return fetch(`${remoteURL}/checklists?userId=${currentUserId}&_embed=items`).then(e => e.json())
     },
+    //delete checklist *Not yet implemented - stretch goal?*
     delete(id) {
         return fetch(`${remoteURL}/checklists/${id}`, {
             method: "DELETE"
         })
     },
+    //Post a new checklist *Stretch goal*
     post(checklist) {
         return fetch(`${remoteURL}/checklists`, {
             method: "POST",
@@ -23,6 +25,7 @@ export default {
             }, body: JSON.stringify(checklist)
         }).then(data => data.json())
     },
+    //get checklist items for checklist by unique id.
     getChecklistItems(checklistId) {
         return fetch(`${remoteURL}/items?checklistId=${checklistId}`).then(e => e.json())
     }
