@@ -4,6 +4,8 @@ import "bootstrap/dist/css/bootstrap.min.css"
 import './NavBar.css'
 
 export default class NavBar extends Component {
+
+
     render() {
         return (
             <nav className="navbar navbar-light fixed-top light-blue flex-md-nowrap p-0 shadow">
@@ -12,14 +14,11 @@ export default class NavBar extends Component {
                         <Link className="nav-link" to="/">Login</Link>
                     </li>
                     <li className="nav-item">
-                        <Link className="nav-link" to="/dashboard">Dashboard</Link>
-                    </li>
-                    <li className="nav-item">
-                        <Link className="nav-link" to="/checklists">Checklists</Link>
+                        <Link className="nav-link"to="/dashboard">Dashboard</Link>
                     </li>
                     <li className="nav-item">
                         <Link
-                            onClick={() => sessionStorage.clear()} className="nav-link" to="/">
+                            onClick={(() => sessionStorage.clear())} className="nav-link" to="/">
                             Logout
                         </Link>
                     </li>

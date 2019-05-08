@@ -2,7 +2,6 @@ import React, { Component } from "react"
 // import { Link } from "react-router-dom"
 import "./items.css"
 
-//get checklist of current user then display the items that are associated with that checklist by item id.
 
 //List all items
 export default class ItemsList extends Component {
