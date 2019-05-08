@@ -5,3 +5,11 @@
     flex-wrap: wrap;
 
 }
+
+.content label{
+    text-align: left;
+}
+
+.content button {
+    margin-top: 20px;
+}

@@ -1,5 +1,5 @@
 import { withRouter } from "react-router"
-import { Route } from "react-router-dom"
+import { Route , Redirect } from "react-router-dom"
 import React, { Component } from "react"
 // import ChecklistList from "./checklists/ChecklistList"
 // import ChecklistForm from "./checklists/ChecklistForm"
@@ -21,7 +21,8 @@ import ItemsForm from "./items/ItemsForm"
 //List all data on respective pages
 class ApplicationViews extends Component {
 
-    // isAuthenticated = () => sessionStorage.getItem("credentials") !== null
+    isAuthenticated = () => sessionStorage.getItem("userId") !== null
+
 
     state = {
         users: [],
@@ -51,6 +52,10 @@ class ApplicationViews extends Component {
     onLogin = () => {
         //Return only data for specific user by id
         this.userSpecificData()
+    }
+
+    onLogout = () => {
+        sessionStorage.clear()
     }
 
     //Add new item
@@ -101,13 +106,21 @@ class ApplicationViews extends Component {
                 }} />
 
                 <Route exact path="/dashboard" render={props => {
+                    if (this.isAuthenticated()) {
                     return <ItemsList {...props}
                         items={this.state.items}
                         checklists={this.state.checklists}
                         deleteItem={this.deleteItem}
                         userSpecificData={this.userSpecificData}
-                    />
-                }} />
+                        />
+                    } else {
+                        return <Redirect to ="/"
+                        />
+                    }
+                }}
+                />
+
+
 
                 <Route exact path="/dashboard/newitem" render={props => {
 

@@ -2,6 +2,7 @@ import React, { Component } from "react"
 // import UsersManager from "../../modules/UsersManager"
 import './login.css'
 import UsersManager from "../../modules/UsersManager";
+
 export default class Login extends Component {
     state = {
         username: "",
@@ -32,22 +33,23 @@ export default class Login extends Component {
                     window.alert("Invalid user!")
                 }
             })
-        // .then(() => this.props.userSpecificData())
+        .then(() => this.props.userSpecificData())
     }
+
+
     render() {
         return (
             <React.Fragment>
                 <div className="main-container">
-                <article className="child-container">
-                    <form onSubmit={this.handleLogin}className="content">
+                    <form onSubmit={this.handleLogin} className="content">
                         <h1>Please Sign in</h1>
                         <label htmlFor="username">Username</label>
                         <input onChange={this.handleFieldChange}
-                            type="username"
+                            type="text"
                             id="username"
                             placeholder="Username..."
                             required=""
-                        // autoFocus=""
+                            autoFocus=""
                         />
                         <br></br>
                         <label htmlFor="password">Password</label>
@@ -56,16 +58,19 @@ export default class Login extends Component {
                             id="password"
                             placeholder="Password..."
                             required=""
-                            autoFocus=""
+
                         />
                         <button type="submit"
-                            onClick={() => this.handleLogin}>Submit</button>
-                        <button type="register"
+                            onClick={() => this.handleLogin}
+                        >Submit</button>
+
+
+                        <button type="submit"
                             onClick={() => {
                                 this.props.history.push("/login/new")
                             }}>Register</button>
+
                     </form>
-                </article>
                 </div>
             </React.Fragment>
         )

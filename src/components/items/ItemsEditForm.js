@@ -65,58 +65,60 @@ export default class ItemsEditForm extends Component {
     render() {
         return (
             <React.Fragment>
-                <form className="form-group editForm">
-                    <label htmlFor="itemName">Item Name: </label>
-                    <input
-                        type="text"
-                        required
-                        className="form-control"
-                        onChange={this.handleFieldChange}
-                        id="itemName"
-                        value={this.state.itemName}
-                        placeholder="Please enter an item..."
-                    />
-                    <label htmlFor="quantity">Quantity: </label>
-                    <input
-                        type="text"
-                        required
-                        className="form-control"
-                        onChange={this.handleFieldChange}
-                        id="quantity"
-                        value={this.state.quantity}
-                        placeholder="Please enter a quantity..."
-                    />
-                    <label>Perishable Item: </label>
-                    <br></br>
-                    <label htmlFor="perishable">True: </label>
-                    <input
-                        id="perishable"
-                        type="checkbox"
-                        // required
-                        value="true"
-                        name="perishableItem"
-                        onChange={this.handleCheckbox}
-                        checked={this.state.perishable}
-                    />
-                    <br></br>
-                    <label>Item Packed: </label>
-                    <br></br>
-                    <label htmlFor="packed">True: </label>
-                    <input
-                        id="packed"
-                        type="checkbox"
-                        required
-                        value="true"
-                        name="packedItem"
-                        onChange={this.handleCheckbox}
-                        checked={this.state.packed}
-                    />
-                    <br></br>
-                    <button
-                        type="submit"
-                        onClick={this.updateExistingItem}
-                        className="btn btn-primary">Submit</button>
-                </form>
+                <div id="edit-form" className="content">
+                    <form className="form-group">
+                        <label htmlFor="itemName">Item Name: </label>
+                        <input
+                            type="text"
+                            required
+                            className="form-control"
+                            onChange={this.handleFieldChange}
+                            id="itemName"
+                            value={this.state.itemName}
+                            placeholder="Please enter an item..."
+                        />
+                        <label htmlFor="quantity">Quantity: </label>
+                        <input
+                            type="text"
+                            required
+                            className="form-control"
+                            onChange={this.handleFieldChange}
+                            id="quantity"
+                            value={this.state.quantity}
+                            placeholder="Please enter a quantity..."
+                        />
+                        <label>Perishable Item: </label>
+                        <br></br>
+                        <label htmlFor="perishable">True: </label>
+                        <input
+                            id="perishable"
+                            type="checkbox"
+                            // required
+                            value="true"
+                            name="perishableItem"
+                            onChange={this.handleCheckbox}
+                            checked={this.state.perishable}
+                        />
+                        <br></br>
+                        <label>Item Packed: </label>
+                        <br></br>
+                        <label htmlFor="packed">True: </label>
+                        <input
+                            id="packed"
+                            type="checkbox"
+                            required
+                            value="true"
+                            name="packedItem"
+                            onChange={this.handleCheckbox}
+                            checked={this.state.packed}
+                        />
+                        <br></br>
+                        <button
+                            type="submit"
+                            onClick={this.updateExistingItem}
+                            className="btn btn-primary">Submit</button>
+                    </form>
+                </div>
             </React.Fragment>
         )
     }
