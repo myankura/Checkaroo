@@ -26,7 +26,7 @@ export default class ItemsList extends Component {
 
     //Conditional statement to determine whether the item is packed.
     isPacked = (packedItem) => {
-        if(packedItem) {
+        if (packedItem) {
             console.log("this is packed")
             return "Packed"
         }
@@ -48,19 +48,23 @@ export default class ItemsList extends Component {
                         this.props.checklists.map(checklist =>
                             checklist.items.map(item =>
                                 <div key={item.id} className="card items">
-                                    <div className="card-body">
-                                        <h5 className="card-title">
+                                    <div className="bungee-font">
+                                        <h5 className="">
                                             {item.itemName}
                                             <p>Quantity: {item.quantity}</p>
                                             <p>{this.isPerishable(item.perishable)}</p>
                                             <p>{this.isPacked(item.packed)}</p>
-                                            <button
-                                                onClick={() => { this.props.deleteItem(item.id) }}
-                                                className="card-link">Delete</button>
-                                            <button
-                                                onClick={() => {
-                                                    this.props.history.push(`/dashboard/${item.id}/edit`)
-                                                }}>Edit</button>
+                                            <div className="btn-items-group">
+                                                <button className="btn btn-primary bungee-font">Packed</button>
+                                                <button
+                                                    onClick={() => { this.props.deleteItem(item.id) }}
+                                                    className="btn btn-primary btn-delete bungee-font">Delete</button>
+                                                <button
+                                                    onClick={() => {
+                                                        this.props.history.push(`/dashboard/${item.id}/edit`)
+                                                    }}
+                                                    className="btn btn-primary btn-edit bungee-font">Edit</button>
+                                            </div>
                                         </h5>
                                     </div>
                                 </div>

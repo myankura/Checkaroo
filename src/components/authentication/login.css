@@ -3,7 +3,8 @@
     flex-direction: column;
     margin-top: 50px;
     flex-wrap: wrap;
-
+    margin-right: 15%;
+    margin-left: 15%;
 }
 
 .content label{
@@ -12,4 +13,18 @@
 
 .content button {
     margin-top: 20px;
+}
+
+label {
+    text-align: left;
+}
+
+.landing-header {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    /* font-family: 'Ewert', cursive; */
+    /* font-family: 'Bungee Shade', cursive; */
+    font-family: 'Monoton', cursive;
+
 }

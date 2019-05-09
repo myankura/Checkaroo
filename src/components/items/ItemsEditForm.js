@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import ItemsManager from '../../modules/ItemsManager'
 import './items.css'
 
+
 export default class ItemsEditForm extends Component {
     //Set initial state
     state = {
@@ -65,9 +66,9 @@ export default class ItemsEditForm extends Component {
     render() {
         return (
             <React.Fragment>
-                <div id="edit-form" className="content">
                     <form className="form-group">
-                        <label htmlFor="itemName">Item Name: </label>
+                    <div className="itemForm content items">
+                        <label htmlFor="itemName">Item Name</label>
                         <input
                             type="text"
                             required
@@ -77,7 +78,9 @@ export default class ItemsEditForm extends Component {
                             value={this.state.itemName}
                             placeholder="Please enter an item..."
                         />
-                        <label htmlFor="quantity">Quantity: </label>
+                        </div>
+                        <div className="itemForm content items">
+                        <label htmlFor="quantity">Quantity</label>
                         <input
                             type="text"
                             required
@@ -87,9 +90,9 @@ export default class ItemsEditForm extends Component {
                             value={this.state.quantity}
                             placeholder="Please enter a quantity..."
                         />
-                        <label>Perishable Item: </label>
-                        <br></br>
-                        <label htmlFor="perishable">True: </label>
+                        </div>
+                        <div className="itemForm content items">
+                        <label>Perishable Item</label>
                         <input
                             id="perishable"
                             type="checkbox"
@@ -99,10 +102,9 @@ export default class ItemsEditForm extends Component {
                             onChange={this.handleCheckbox}
                             checked={this.state.perishable}
                         />
-                        <br></br>
-                        <label>Item Packed: </label>
-                        <br></br>
-                        <label htmlFor="packed">True: </label>
+                        </div>
+                        <div className="itemForm content items">
+                        <label>Item Packed</label>
                         <input
                             id="packed"
                             type="checkbox"
@@ -112,13 +114,14 @@ export default class ItemsEditForm extends Component {
                             onChange={this.handleCheckbox}
                             checked={this.state.packed}
                         />
-                        <br></br>
+                        </div>
+                        <div>
                         <button
                             type="submit"
                             onClick={this.updateExistingItem}
-                            className="btn btn-primary">Submit</button>
+                            className="btn btn-primary btn-submit">Submit</button>
+                            </div>
                     </form>
-                </div>
             </React.Fragment>
         )
     }

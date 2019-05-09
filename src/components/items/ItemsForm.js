@@ -9,7 +9,7 @@ export default class ItemsForm extends Component {
         quantity: "",
         perishable: false,
         packed: false,
-        checklistId: ""
+        checklistId: []
     };
 
     //Handle whether perishable is false
@@ -30,6 +30,7 @@ export default class ItemsForm extends Component {
         let getChecklistId = this.props.checklists.map(checklist => {
             return checklist.id
         })
+
         this.setState({
             //After the user has been validated get the checklist that is unique to the user and set the state of the checklistId
             checklistId: getChecklistId
@@ -64,8 +65,8 @@ export default class ItemsForm extends Component {
         console.log("this.props.checklist?", this.props.checklists)
         return (
             <React.Fragment>
-                <form className="itemForm content items">
-                    <div className="form-group">
+                <form className="form-group">
+                    <div className="itemForm content items">
                         <label htmlFor="itemName">Item:</label>
                         <input
                             type="text"
@@ -76,7 +77,7 @@ export default class ItemsForm extends Component {
                             placeholder="Name of item..."
                         />
                     </div>
-                    <div>
+                    <div className="itemForm content items">
                         <label htmlFor="quantity">Quantity:</label>
                         <input
                             type="text"
@@ -87,7 +88,7 @@ export default class ItemsForm extends Component {
                             placeholder="Quantity of item..."
                         />
                     </div>
-                    <div>
+                    <div className="itemForm content items">
                         <label htmlFor="perishable">Perishable:</label>
                         <input
                             id="perishable"
@@ -95,10 +96,12 @@ export default class ItemsForm extends Component {
                             value="true"
                             onChange={this.handleFieldChange}
                         />
+                    </div>
+                    <div>
                         <button
                             type="submit"
                             onClick={this.constructNewItem}
-                            className="btn btn-primary"
+                            className="btn btn-primary btn-submit"
                         >
                             Submit</button>
                     </div>
