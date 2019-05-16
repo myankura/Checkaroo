@@ -43,11 +43,7 @@ export default class ItemsList extends Component {
             packed: true
         }
         this.props.patchItem(patchedItem)
-        //Hide the button once it has been clicked.
-        let hideButton = event.target
-        hideButton.style.display = "none"
     }
-
 
     //Render all items that are in the api
     render() {
@@ -76,10 +72,15 @@ export default class ItemsList extends Component {
                                             <br></br>
                                             {this.isPacked(item.packed)}
                                             <div className="btn-items-group">
-                                                <button
-                                                    id={item.id}
-                                                    onClick={this.patchExistingItem}
-                                                    className="btn btn-primary bungee-font">Packed</button>
+                                                {
+                                                    //ternary for determines whether the button should display depending on it's boolean value in api
+                                                    (item.packed === false)
+                                                        ?(<button
+                                                        id={item.id}
+                                                        onClick={this.patchExistingItem}
+                                                        className="btn btn-primary bungee-font">Packed</button>)
+                                                        :null
+                                                }
                                                 <button
                                                     onClick={() => { this.props.deleteItem(item.id) }}
                                                     className="btn btn-primary btn-delete bungee-font">Delete</button>
