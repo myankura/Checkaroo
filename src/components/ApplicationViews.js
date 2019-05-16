@@ -79,6 +79,12 @@ class ApplicationViews extends Component {
             .then(() => this.userSpecificData())
     }
 
+    patchItem = patchItemObject => {
+        return ItemsManager.patch(patchItemObject)
+            //Return only data for specific user by id
+            .then(() => this.userSpecificData())
+    }
+
     //create new user
     addUser = user => {
         return UsersManager.post(user)
@@ -111,6 +117,7 @@ class ApplicationViews extends Component {
                         items={this.state.items}
                         checklists={this.state.checklists}
                         deleteItem={this.deleteItem}
+                        patchItem={this.patchItem}
                         userSpecificData={this.userSpecificData}
                         />
                     } else {
@@ -119,8 +126,6 @@ class ApplicationViews extends Component {
                     }
                 }}
                 />
-
-
 
                 <Route exact path="/dashboard/newitem" render={props => {
 

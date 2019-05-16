@@ -41,7 +41,7 @@ export default class Login extends Component {
     render() {
         return (
             <React.Fragment>
-                <h1 className="landing-header">Checkaroo</h1>
+                <h1 className="header">Checkaroo</h1>
                 <div className="main-container bungee-font">
                     <form onSubmit={this.handleLogin}
                         className="content">

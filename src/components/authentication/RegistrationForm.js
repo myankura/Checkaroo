@@ -64,9 +64,11 @@ export default class RegistrationForm extends Component {
     render() {
         return (
             <React.Fragment>
+                <h1 className="bungee-font header">Registration</h1>
                 <form className="form-group">
-                    <div className="content bungee-font">
-                        <label htmlFor="firstName">First Name</label>
+                    <div className="content bungee-font
+                    ">
+                        <label htmlFor="firstName">First Name*</label>
                         <input
                             type="text"
                             className="form-control"
@@ -90,7 +92,7 @@ export default class RegistrationForm extends Component {
                             onChange={this.handleFieldChange}
                             placeholder="Email address..."
                         />
-                        <label htmlFor="username">Username</label>
+                        <label htmlFor="username">Username*</label>
                         <input
                             type="text"
                             required
@@ -99,7 +101,7 @@ export default class RegistrationForm extends Component {
                             onChange={this.handleFieldChange}
                             placeholder="Username..."
                         />
-                        <label htmlFor="password">Password</label>
+                        <label htmlFor="password">Password*</label>
                         <input
                             type="password"
                             required

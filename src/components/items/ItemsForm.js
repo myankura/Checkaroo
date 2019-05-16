@@ -65,9 +65,10 @@ export default class ItemsForm extends Component {
         console.log("this.props.checklist?", this.props.checklists)
         return (
             <React.Fragment>
-                <form className="form-group">
+                <h1 className="bungee-font header">Add a new item</h1>
+                <form className="form-group bungee-font">
                     <div className="itemForm content items">
-                        <label htmlFor="itemName">Item:</label>
+                        <label htmlFor="itemName">Item</label>
                         <input
                             type="text"
                             required
@@ -78,7 +79,7 @@ export default class ItemsForm extends Component {
                         />
                     </div>
                     <div className="itemForm content items">
-                        <label htmlFor="quantity">Quantity:</label>
+                        <label htmlFor="quantity">Quantity</label>
                         <input
                             type="text"
                             required
@@ -101,7 +102,7 @@ export default class ItemsForm extends Component {
                         <button
                             type="submit"
                             onClick={this.constructNewItem}
-                            className="btn btn-primary btn-submit"
+                            className="btn btn-success btn-submit"
                         >
                             Submit</button>
                     </div>

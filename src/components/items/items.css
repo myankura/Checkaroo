@@ -2,16 +2,19 @@
     display: inline-flex;
     justify-content: space-between;
     text-align: left;
+    height: 100%;
 }
 
 .newItemButton {
     display: flex;
     justify-content: center;
     margin: 0 0 10px 0;
-    margin-top: 50px;
+    /* margin-top: 50px; */
 }
+
 .btn-success {
     display: flex;
+    /* margin-top: -75px; */
 }
 
 .itemForm {
@@ -30,11 +33,18 @@
     display: inline-block;
     margin-left: 75%;
 }
+
 .btn-items-group {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
     justify-content: space-around;
+    margin-bottom: 10px;
+}
+
+.card {
+    background-color: rgb(255, 255, 211);
+    margin-top: 5%;
 }
 
 /* .btn-delete {
@@ -42,6 +52,7 @@
     flex-direction: row;
     margin-left: 70%;
 }
+
 .btn-edit {
     display: flex;
     flex-direction: row;
@@ -50,8 +61,9 @@
 
 
 .form-group {
-    padding-left: 10px;
-    padding-right: 10px;
+    /* padding-left: 10px;
+    padding-right: 10px; */
+    margin-bottom: 25%;
 }
 
 input[type=checkbox] {

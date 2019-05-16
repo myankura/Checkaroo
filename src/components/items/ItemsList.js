@@ -8,7 +8,8 @@ export default class ItemsList extends Component {
 
     //Initialize the state of user's items that match the checklistId that belongs to the user.
     state = {
-        userItems: []
+        userItems: [],
+        packed: false
     }
 
     componentDidMount() {
@@ -31,13 +32,30 @@ export default class ItemsList extends Component {
             return "Packed"
         }
     }
+
+    //Method for patching an existing item as packed
+    patchExistingItem = event => {
+        console.log("The packed button has been clicked.")
+        event.preventDefault()
+        console.log("packed button", event.target.id)
+        let patchedItem = {
+            id: Number(event.target.id),
+            packed: true
+        }
+        this.props.patchItem(patchedItem)
+        //Hide the button once it has been clicked.
+        let hideButton = event.target
+        hideButton.style.display = "none"
+    }
+
+
     //Render all items that are in the api
     render() {
         console.log("this.props.checklists", this.props.checklists)
         return (
             <React.Fragment>
                 <div className="newItemButton">
-                    <button className="btn btn-success"
+                    <button className="btn btn-success bungee-font"
                         onClick={() => {
                             this.props.history.push("/dashboard/newitem")
                         }}
@@ -49,13 +67,19 @@ export default class ItemsList extends Component {
                             checklist.items.map(item =>
                                 <div key={item.id} className="card items">
                                     <div className="bungee-font">
-                                        <h5 className="">
+                                        <h5>
                                             {item.itemName}
-                                            <p>Quantity: {item.quantity}</p>
-                                            <p>{this.isPerishable(item.perishable)}</p>
-                                            <p>{this.isPacked(item.packed)}</p>
+                                            <br></br>
+                                            Quantity: {item.quantity}
+                                            <br></br>
+                                            {this.isPerishable(item.perishable)}
+                                            <br></br>
+                                            {this.isPacked(item.packed)}
                                             <div className="btn-items-group">
-                                                <button className="btn btn-primary bungee-font">Packed</button>
+                                                <button
+                                                    id={item.id}
+                                                    onClick={this.patchExistingItem}
+                                                    className="btn btn-primary bungee-font">Packed</button>
                                                 <button
                                                     onClick={() => { this.props.deleteItem(item.id) }}
                                                     className="btn btn-primary btn-delete bungee-font">Delete</button>

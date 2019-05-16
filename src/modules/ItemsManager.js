@@ -35,5 +35,14 @@ export default {
             },
             body: JSON.stringify(editedItem)
         }).then(data => data.json());
+    },
+    patch(patchItem) {
+        return fetch(`${remoteURL}/items/${patchItem.id}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(patchItem)
+        }).then(data => data.json());
     }
 }
