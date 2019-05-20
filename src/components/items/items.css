@@ -2,43 +2,69 @@
     display: inline-flex;
     justify-content: space-between;
     text-align: left;
+    height: 100%;
 }
 
 .newItemButton {
     display: flex;
-    justify-content: space-evenly;
-    margin: 0 0 10px 0;
-    margin-top: 50px;
+    justify-content: center;
+    margin: 40px 0 10px 0;
 }
 
-#edit-form {
-    display: block;
+.btn-success {
+    display: flex;
+}
+
+.itemForm {
+    margin-top: 10px;
 }
 
 .content {
     display: inline-flex;
     flex-direction: column;
-    margin-top: 50px;
+    margin-top: 10px;
     flex-wrap: wrap;
-
+    /* width: 90%; */
 }
-/* .icon--item {
-    width: 50px;
-    height: 50px;
-} */
 
-/* .card {
-    width: 10rem;
-} */
+.btn-submit {
+    display: inline-block;
+    margin-left: 75%;
+}
 
-/* .card-title {
+.btn-items-group {
     display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
     justify-content: space-around;
-    align-items: center;
-    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.card {
+    background-color: rgb(255, 255, 211);
+    margin-top: 5%;
+}
+
+/* .btn-delete {
+    display: flex;
+    flex-direction: row;
+    margin-left: 70%;
+}
+
+.btn-edit {
+    display: flex;
+    flex-direction: row;
+    margin-left: 45%;
 } */
 
-/* .card-link {
-    margin: 12px 0 0 0;
-    font-size: 0.7em;
-} */
+
+.form-group {
+    /* padding-left: 10px;
+    padding-right: 10px; */
+    margin-bottom: 25%;
+}
+
+input[type=checkbox] {
+    transform: scale(2.5);
+    margin-left: 10px;
+}

@@ -47,7 +47,6 @@ class ApplicationViews extends Component {
             .then(() => this.setState(newState))
     }
 
-
     //Handles login
     onLogin = () => {
         //Return only data for specific user by id
@@ -75,6 +74,12 @@ class ApplicationViews extends Component {
     //update item by id
     updateItem = editedItemObject => {
         return ItemsManager.put(editedItemObject)
+            //Return only data for specific user by id
+            .then(() => this.userSpecificData())
+    }
+
+    patchItem = patchItemObject => {
+        return ItemsManager.patch(patchItemObject)
             //Return only data for specific user by id
             .then(() => this.userSpecificData())
     }
@@ -111,6 +116,7 @@ class ApplicationViews extends Component {
                         items={this.state.items}
                         checklists={this.state.checklists}
                         deleteItem={this.deleteItem}
+                        patchItem={this.patchItem}
                         userSpecificData={this.userSpecificData}
                         />
                     } else {
@@ -119,8 +125,6 @@ class ApplicationViews extends Component {
                     }
                 }}
                 />
-
-
 
                 <Route exact path="/dashboard/newitem" render={props => {
 

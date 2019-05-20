@@ -9,7 +9,7 @@ export default class ItemsForm extends Component {
         quantity: "",
         perishable: false,
         packed: false,
-        checklistId: ""
+        checklistId: []
     };
 
     //Handle whether perishable is false
@@ -30,6 +30,7 @@ export default class ItemsForm extends Component {
         let getChecklistId = this.props.checklists.map(checklist => {
             return checklist.id
         })
+
         this.setState({
             //After the user has been validated get the checklist that is unique to the user and set the state of the checklistId
             checklistId: getChecklistId
@@ -61,12 +62,13 @@ export default class ItemsForm extends Component {
     }
     //render item form when ever add item is clicked.
     render() {
-        console.log("this.props.checklist?", this.props.checklists)
+        // console.log("this.props.checklist?", this.props.checklists)
         return (
             <React.Fragment>
-                <form className="itemForm content items">
-                    <div className="form-group">
-                        <label htmlFor="itemName">Item:</label>
+                <h1 className="bungee-font header">Add a new item</h1>
+                <form className="form-group bungee-font">
+                    <div className="itemForm content items">
+                        <label htmlFor="itemName">Item</label>
                         <input
                             type="text"
                             required
@@ -76,8 +78,8 @@ export default class ItemsForm extends Component {
                             placeholder="Name of item..."
                         />
                     </div>
-                    <div>
-                        <label htmlFor="quantity">Quantity:</label>
+                    <div className="itemForm content items">
+                        <label htmlFor="quantity">Quantity</label>
                         <input
                             type="text"
                             required
@@ -87,7 +89,7 @@ export default class ItemsForm extends Component {
                             placeholder="Quantity of item..."
                         />
                     </div>
-                    <div>
+                    <div className="itemForm content items">
                         <label htmlFor="perishable">Perishable:</label>
                         <input
                             id="perishable"
@@ -95,10 +97,12 @@ export default class ItemsForm extends Component {
                             value="true"
                             onChange={this.handleFieldChange}
                         />
+                    </div>
+                    <div>
                         <button
                             type="submit"
                             onClick={this.constructNewItem}
-                            className="btn btn-primary"
+                            className="btn btn-success btn-submit"
                         >
                             Submit</button>
                     </div>

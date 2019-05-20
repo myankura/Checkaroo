@@ -1,9 +1,11 @@
 .content {
     display: flex;
     flex-direction: column;
-    margin-top: 50px;
+    margin-top: 25px;
     flex-wrap: wrap;
-
+    margin-right: 8%;
+    margin-left: 8%;
+    min-height: 100%
 }
 
 .content label{
@@ -11,5 +13,20 @@
 }
 
 .content button {
-    margin-top: 20px;
+    margin-top: 30px;
+}
+
+label {
+    text-align: left;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    font-size: 45px;
+    /* margin-top: 20px; */
+    /* font-family: 'Ewert', cursive; */
+    /* font-family: 'Bungee Shade', cursive; */
+    font-family: 'Monoton', cursive;
+
 }

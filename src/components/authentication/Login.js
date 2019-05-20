@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 // import UsersManager from "../../modules/UsersManager"
 import './login.css'
+// import './checkaroo.css'
 import UsersManager from "../../modules/UsersManager";
 
 export default class Login extends Component {
@@ -33,16 +34,18 @@ export default class Login extends Component {
                     window.alert("Invalid user!")
                 }
             })
-        .then(() => this.props.userSpecificData())
+            .then(() => this.props.userSpecificData())
     }
 
 
     render() {
         return (
             <React.Fragment>
-                <div className="main-container">
-                    <form onSubmit={this.handleLogin} className="content">
-                        <h1>Please Sign in</h1>
+                <h1 className="header">Checkaroo</h1>
+                <div className="main-container bungee-font">
+                    <form onSubmit={this.handleLogin}
+                        className="content">
+                        <h1>Sign in</h1>
                         <label htmlFor="username">Username</label>
                         <input onChange={this.handleFieldChange}
                             type="text"
@@ -61,11 +64,11 @@ export default class Login extends Component {
 
                         />
                         <button type="submit"
+                            className="btn btn-primary"
                             onClick={() => this.handleLogin}
                         >Submit</button>
-
-
                         <button type="submit"
+                            className="btn btn-primary"
                             onClick={() => {
                                 this.props.history.push("/login/new")
                             }}>Register</button>

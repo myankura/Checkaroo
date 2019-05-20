@@ -1,18 +1,44 @@
-.main-container {
-    display: inline-flex;
+.main-container html {
+    display: flex;
     flex-direction: column;
     max-width: 500px;
     margin-top: 60px;
+    height: 100%;
+    padding-left: 10%;
+    padding-right: 10%;
 }
 
-#root {
-    text-align: center;
+body {
+    background-image: linear-gradient(rgba(0, 0, 255, 0.5), rgba(0, 255, 0, 0.5));
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    /* min-height: 100%; */
+    margin-top: 48%;
+    margin-bottom: 48%;
+    max-width: 100%;
+    /* margin-left: 0%;
+    margin-right: 0%; */
+    min-width: 100%;
 }
 
-form {
+html {
+    min-height: 100%;
+}
+
+label {
+    font-size: 20pt;
+}
+
+.main-container form {
     display: flex;
 }
 
-form input {
+.main-container form input {
+    display: block;
     width: 100%;
+}
+
+.bungee-font {
+    font-family: 'Bungee Shade', cursive;
 }
