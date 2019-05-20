@@ -62,7 +62,7 @@ export default class ItemsForm extends Component {
     }
     //render item form when ever add item is clicked.
     render() {
-        console.log("this.props.checklist?", this.props.checklists)
+        // console.log("this.props.checklist?", this.props.checklists)
         return (
             <React.Fragment>
                 <h1 className="bungee-font header">Add a new item</h1>

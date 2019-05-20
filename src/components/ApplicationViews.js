@@ -47,7 +47,6 @@ class ApplicationViews extends Component {
             .then(() => this.setState(newState))
     }
 
-
     //Handles login
     onLogin = () => {
         //Return only data for specific user by id
