@@ -29,7 +29,7 @@ export default class Login extends Component {
                 if (isValidUser) {
                     sessionStorage.setItem("userId", isValidUser.id)
                     this.props.onLogin()
-                    this.props.history.push("/dashboard")
+                    this.props.history.push("/checklist")
                 } else {
                     window.alert("Invalid user!")
                 }
