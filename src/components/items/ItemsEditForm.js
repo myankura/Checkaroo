@@ -42,9 +42,9 @@ export default class ItemsEditForm extends Component {
             packed: this.state.packed,
             checklistId: this.state.checklistId
         }
-        //Pushes the user back to the dashboard page
+        //Pushes the user back to the checklist page
         this.props.updateItem(editedItem)
-            .then(() => this.props.history.push("/dashboard"))
+            .then(() => this.props.history.push("/checklist"))
     }
 
     //Sets the state of the object

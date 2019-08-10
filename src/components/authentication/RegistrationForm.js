@@ -52,10 +52,10 @@ export default class RegistrationForm extends Component {
                     //post checklist to API
                     ChecklistManager.post(newChecklist)
                 })
-                //Once everything has been validated and the user and checklist have been created redirect the new user to the dashboard.
+                //Once everything has been validated and the user and checklist have been created redirect the new user to the checklist.
                 .then(() => {
                     this.props.onLogin()
-                    this.props.history.push("/dashboard")
+                    this.props.history.push("/checklist")
                 })
         }
 

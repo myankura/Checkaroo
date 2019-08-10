@@ -55,9 +55,9 @@ export default class ItemsForm extends Component {
                 packed: this.state.packed,
                 checklistId: this.state.checklistId[0]
             }
-            //create the item and redirect user to the dashboard
+            //create the item and redirect user to the checklist
             this.props.addItem(item)
-                .then(() => this.props.history.push("/dashboard"));
+                .then(() => this.props.history.push("/checklist"));
         }
     }
     //render item form when ever add item is clicked.

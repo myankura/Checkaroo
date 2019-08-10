@@ -110,7 +110,7 @@ class ApplicationViews extends Component {
                     />
                 }} />
 
-                <Route exact path="/dashboard" render={props => {
+                <Route exact path="/checklist" render={props => {
                     if (this.isAuthenticated()) {
                     return <ItemsList {...props}
                         items={this.state.items}
@@ -126,7 +126,7 @@ class ApplicationViews extends Component {
                 }}
                 />
 
-                <Route exact path="/dashboard/newitem" render={props => {
+                <Route exact path="/checklist/newitem" render={props => {
 
                     return <ItemsForm {...props}
                         addItem={this.addItem}
@@ -136,7 +136,7 @@ class ApplicationViews extends Component {
 
                 }} />
 
-                <Route exact path="/dashboard/:itemId(\d+)/edit" render={props => {
+                <Route exact path="/checklist/:itemId(\d+)/edit" render={props => {
                     return <ItemsEditForm {...props}
                         updateItem={this.updateItem}
                         userSpecificData={this.userSpecificData} />

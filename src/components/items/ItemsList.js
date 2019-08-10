@@ -53,7 +53,7 @@ export default class ItemsList extends Component {
                 <div className="newItemButton">
                     <button className="btn btn-success bungee-font"
                         onClick={() => {
-                            this.props.history.push("/dashboard/newitem")
+                            this.props.history.push("/checklist/newitem")
                         }}
                         >Add Item</button>
                 </div>
@@ -86,7 +86,7 @@ export default class ItemsList extends Component {
                                                     className="btn btn-primary btn-delete bungee-font">Delete</button>
                                                 <button
                                                     onClick={() => {
-                                                        this.props.history.push(`/dashboard/${item.id}/edit`)
+                                                        this.props.history.push(`/checklist/${item.id}/edit`)
                                                     }}
                                                     className="btn btn-primary btn-edit bungee-font">Edit</button>
                                             </div>
@@ -97,13 +97,13 @@ export default class ItemsList extends Component {
                         )
                     }
                 </section>
-                <div className="newItemButton">
+                {/* <div className="newItemButton">
                     <button className="btn btn-success bungee-font"
                         onClick={() => {
-                            this.props.history.push("/dashboard/newitem")
+                            this.props.history.push("/checklist/newitem")
                         }}
                         >Add Item</button>
-                </div>
+                </div> */}
             </React.Fragment>
         )
     }
