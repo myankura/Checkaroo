@@ -1,0 +1,14 @@
+.messages {
+    display: inline-flex;
+    justify-content: space-between;
+    text-align: left;
+    height: 100%;
+}
+
+.contentContainer {
+    display: inline-flex;
+    flex-direction: column;
+    margin-top: 10px;
+    flex-wrap: wrap;
+    /* width: 90%; */
+}

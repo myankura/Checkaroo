@@ -17,6 +17,9 @@ export default class NavBar extends Component {
                         <Link className="nav-link"to="/checklist">Checklist</Link>
                     </li>
                     <li className="nav-item">
+                        <Link className="nav-link"to="/messages">Messages</Link>
+                    </li>
+                    <li className="nav-item">
                         <Link
                             onClick={(() => sessionStorage.clear())} className="nav-link" to="/">
                             Logout

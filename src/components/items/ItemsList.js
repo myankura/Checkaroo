@@ -57,7 +57,9 @@ export default class ItemsList extends Component {
                         }}
                         >Add Item</button>
                 </div>
-                <section className="content items">
+                <section 
+                className="content items"
+                >
                     {
                         this.props.checklists.map(checklist =>
                             checklist.items.map(item =>
