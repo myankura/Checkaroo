@@ -1,6 +1,6 @@
 Author: Michael Yankura
 
-# Getting Started
+# Overview
 Checkaroo is an app intended to assist users with preparation for the music and arts festival Bonnaroo by allowing them to build a checklist for supplies that will be needed.
 
 ## Built With
@@ -24,6 +24,7 @@ Checkaroo is an app intended to assist users with preparation for the music and 
 
 **GitHub** -  Used for bug tracking, feature requests, and task management.
 
+# Getting started
 These instructions will clone a copy of the project to your local machine from my GitHub repository and assist you with setting up the additional dependencies required to make this app function. In this README I will be doing this all through Git and Linux commands through my Git Bash terminal.
 
 ## Installation
@@ -91,5 +92,5 @@ Steps to view the app in a mobile frame via **Mozilla Firefox**:
 You are now ready to use Checkaroo.
 
 ## First Time User instructions
-The first thing you have to do is register as new user otherwise you will not be able to use Checkaroo.
+The first thing you will need to do is register as a new user, otherwise you will not be able to use Checkaroo.
 Once registered you should be able to use the application. By default the user a checklist is created for the user when they register a new account. 
