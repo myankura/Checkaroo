@@ -1,10 +1,9 @@
 Author: Michael Yankura
 
-#Getting Started
-
+# Getting Started
 Checkaroo is an app intended to assist users with preparation for the music and arts festival Bonnaroo by allowing them to build a checklist for supplies that will be needed.
 
-##Built With:
+## Built With
 JavaScript - The language used.
 React.js - JavaScript library for building user interfaces.
 Node.js - JavaScript run-time environment.
@@ -18,7 +17,7 @@ GitHub -  Used for bug tracking, feature requests, and task management.
 
 These instructions will clone a copy of the project to your local machine from my GitHub repository and assist you with setting up the additional dependencies required to make this app function. In this README I will be doing this all through Git and Linux commands through my Git Bash terminal.
 
-##Installation
+## Installation
 First, you'll need to clone down the Checkaroo repository into a directory. Open your terminal and enter the following command and execute:
 
 ```git clone git@github.com:myankura/Checkaroo.git```
@@ -27,7 +26,8 @@ After you are done cloning the project from my repository to your local machine,
 
 ```cd checkaroo```
 
-##Note: This app uses **node.js** and **JSON Server**. You will need to download and install both of these before proceeding. To install node.js go to https://nodejs.org/en/download and follow the instructions, **this could take several minutes.**. 
+## Note: 
+This app uses **node.js** and **JSON Server**. You will need to download and install both of these before proceeding. To install node.js go to https://nodejs.org/en/download and follow the instructions, **this could take several minutes.**. 
 
 Once node.js has been installed to your system, we will need to install node package manager in the root of the project folder. To do so type in the following command in your terminal and execute it, **this could take several minutes.**:
 
@@ -41,7 +41,7 @@ To install JSON Server type the following command in your terminal and execute i
 
 ```npm install -g json-server``` 
 
-##Important
+## Important
 **The database.json file has been ignored in the .gitignore. For this app to work the way intended the database.json file is required.** For convenience I have added an example of the REST API called database.json.example which has some dummy data to get you started out. To use the dummy data just rename the file to database.json. This can be done in the your text editor, the project's directory, or by a Linux command through the terminal.
 
 To do this in the terminal you will need to go to where the file is. This file can be found at the following directory ```/Checkaroo/api```. In your terminal type the following command and execute it:
@@ -81,6 +81,6 @@ Steps to view the app in a mobile frame via **Mozilla Firefox**:
 1. Now type http://localhost:3000 in the browser's address bar and hit enter.
 You are now ready to use Checkaroo.
 
-##First Time User instructions
+## First Time User instructions
 The first thing you have to do is register as new user otherwise you will not be able to use Checkaroo.
 Once registered you should be able to use the application. By default the user a checklist is created for the user when they register a new account. 
