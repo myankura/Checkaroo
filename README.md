@@ -6,23 +6,23 @@ Checkaroo is an app intended to assist users with preparation for the music and 
 ## Built With
 JavaScript - The language used.
 
-React.js - JavaScript library for building user interfaces.
+**React.js** - JavaScript library for building user interfaces.
 
-Node.js - JavaScript run-time environment.
+**Node.js** - JavaScript run-time environment.
 
-JSON Server - The fake REST API being used for persistant storage and CRUD functionality.
+**JSON Server** - The fake REST API being used for persistant storage and CRUD functionality.
 
-CSS - Main styling.
+**CSS** - Main styling.
 
-Bootstrap - Used for some styling.
+**Bootstrap** - Used for some styling.
 
-Visual Studio Code - Text editor used.
+**Visual Studio Code** - Text editor used.
 
-Git Bash - The terminal used.
+**Git Bash** - The terminal used.
 
-Git - Version control system.
+**Git** - Version control system.
 
-GitHub -  Used for bug tracking, feature requests, and task management.
+**GitHub** -  Used for bug tracking, feature requests, and task management.
 
 These instructions will clone a copy of the project to your local machine from my GitHub repository and assist you with setting up the additional dependencies required to make this app function. In this README I will be doing this all through Git and Linux commands through my Git Bash terminal.
 
