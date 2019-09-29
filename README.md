@@ -25,7 +25,7 @@ Checkaroo is an app intended to assist users with preparation for the music and 
 **GitHub** -  Used for bug tracking, feature requests, and task management.
 
 # Getting started
-These instructions will clone a copy of the project to your local machine from my GitHub repository and assist you with setting up the additional dependencies required to make this app function. In this README I will be doing this all through Git and Linux commands through my Git Bash terminal.
+These instructions will clone a copy of the project to your local machine from my GitHub repository and assist you with setting up the additional dependencies required to make this app function. In this README I will be doing this all by using Git and Linux commands through my Git Bash terminal.
 
 ## Installation
 First, you'll need to clone down the Checkaroo repository into a directory. Open your terminal and enter the following command and execute:
