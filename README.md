@@ -4,7 +4,7 @@ Author: Michael Yankura
 Checkaroo is an app intended to assist users with preparation for the music and arts festival Bonnaroo by allowing them to build a checklist for supplies that will be needed.
 
 ## Built With
-JavaScript - The language used.
+**JavaScript** - The language used.
 
 **React.js** - JavaScript library for building user interfaces.
 
