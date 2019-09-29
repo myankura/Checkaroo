@@ -1,6 +1,7 @@
 Author: Michael Yankura
 
 #Getting Started
+
 Checkaroo is an app intended to assist users with preparation for the music and arts festival Bonnaroo by allowing them to build a checklist for supplies that will be needed.
 
 ##Built With:
