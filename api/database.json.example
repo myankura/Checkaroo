@@ -4,7 +4,7 @@
             "id": 1,
             "firstName": "Billy",
             "lastName": "Mays",
-            "username": "bmay",
+            "username": "bmays",
             "password": "12345",
             "email": "billy@gmail.com"
         },
@@ -43,7 +43,7 @@
             "checklistId": 1
         },
         {
-            "id": 2,
+            "id": 3,
             "itemName": "Beer",
             "quantity": 2,
             "perishable": true,
@@ -51,7 +51,7 @@
             "checklistId": 1
         },
         {
-            "id": 2,
+            "id": 4,
             "itemName": "Sunscreen",
             "quantity": 2,
             "perishable": false,
@@ -59,7 +59,7 @@
             "checklistId": 1
         },
         {
-            "id": 2,
+            "id": 5,
             "itemName": "Potato Chips",
             "quantity": 2,
             "perishable": true,
